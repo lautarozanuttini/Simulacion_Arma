@@ -1,0 +1,106 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="Style.css">
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div id="contador">
+        <p id="mensaje">6</p>
+        <div id="botones">
+            <button class="gatillo" id="gatillo" type="button" onclick="contadorcartucho()">Disparar</button>
+            <button class="recarga" id="recarga" type="button">Recargar</button>
+        </div>
+        <p id="mensaje2">ARMA CARGADA</p>
+        <div id="cartucho">
+            <div class="balas" id="bala1" style="display: block;"></div>
+            <div class="balas" id="bala2" style="display: block;"></div>
+            <div class="balas" id="bala3" style="display: block;"></div>
+            <div class="balas" id="bala4" style="display: block;"></div>
+            <div class="balas" id="bala5" style="display: block;"></div>
+            <div class="balas" id="bala6" style="display: block;"></div>
+        </div>
+        <div id="botonseguro">
+            <input class="seguro" id="seguro" type="checkbox" onclick="seguro()">
+            <Span>Seguro</Span>
+        </div>
+    </div>
+</body>
+<script>
+    var cartucho = 6;
+    var contador = cartucho;
+    var recarga = document.querySelector('#recarga')
+    var mensaje2 = "no tienes mas balas";
+    var mensaje3 = "ahora si tienes balas"
+        /*const balas = document.querySelectorAll('.balas');
+        console.log(balas, balas[0].id == 'bala1');
+        */
+    let bala1 = document.querySelector('#bala1')
+    let bala2 = document.querySelector('#bala2')
+    let bala3 = document.querySelector('#bala3')
+    let bala4 = document.querySelector('#bala4')
+    let bala5 = document.querySelector('#bala5')
+    let bala6 = document.querySelector('#bala6')
+
+    function contadorcartucho() {
+        if (cartucho == 0)
+            document.getElementById("mensaje").innerHTML = 0;
+        else
+            document.getElementById("mensaje").innerHTML = --cartucho;
+        if (cartucho == 0) {
+            document.getElementById("mensaje2").innerHTML = mensaje2;
+        }
+        if (cartucho == 0) {
+            document.getElementById("gatillo").disabled = true;
+        }
+    }
+
+    function reDrawBullet() {
+        bala1.style.display = 'block';
+        bala2.style.display = 'block';
+        bala3.style.display = 'block';
+        bala4.style.display = 'block';
+        bala5.style.display = 'block';
+        bala6.style.display = 'block';
+        document.getElementById("gatillo").disabled = false;
+    }
+
+    function seguro() {
+        if (document.getElementById("seguro").checked) {
+            document.getElementById("gatillo").disabled = true;
+        } else {
+            document.getElementById("gatillo").disabled = false;
+        }
+    }
+
+    recarga.addEventListener("click", () => {
+        cartucho = 7;
+        contadorcartucho();
+        document.getElementById("mensaje2").innerHTML = mensaje3;
+        reDrawBullet();
+    })
+
+    document.getElementById("gatillo").addEventListener("click", () => {
+        if (cartucho <= 5 && bala1.style.display == "block") {
+            bala1.style.display = "none";
+        }
+        if (cartucho == 4 && bala2.style.display == "block") {
+            bala2.style.display = "none";
+        }
+        if (cartucho == 3 && bala3.style.display == "block") {
+            bala3.style.display = "none";
+        }
+        if (cartucho == 2 && bala4.style.display == "block") {
+            bala4.style.display = "none";
+        }
+        if (cartucho == 1 && bala5.style.display == "block") {
+            bala5.style.display = "none";
+        }
+        if (cartucho == 0 && bala6.style.display == "block") {
+            bala6.style.display = "none";
+        }
+    })
+</script>
+
+</html>

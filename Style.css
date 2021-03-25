@@ -1,0 +1,45 @@
+#mensaje {
+    font-size: 100px;
+    margin: 10px;
+    text-align: center;
+}
+
+#contador {
+    position: relative;
+    margin: auto;
+    display: inline-block;
+    border: solid black 3px;
+    background: linear-gradient(to bottom, rgb(190, 190, 190), rgb(122, 122, 122));
+    border-radius: 8px;
+    padding: 20px 20px 50px 20px;
+}
+
+#mensaje2 {
+    text-align: center;
+    margin: 10px 0;
+}
+
+#cartucho {
+    width: 120px;
+    height: 120px;
+    margin: 0 5 0 5;
+    display: flex;
+}
+
+.balas {
+    flex-direction: row;
+    width: 10px;
+    height: 100px;
+    margin: 5px;
+    background: rgb(230, 5, 5);
+}
+
+#botones {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#botonseguro {
+    display: flex;
+    justify-content: center;
+}
